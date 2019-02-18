@@ -1,0 +1,7 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "apollo server tutorial",
+  "main": "index.js",
+  "license": "MIT"
+}
