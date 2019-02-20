@@ -70,17 +70,23 @@ module.exports = {
   Mission: {
     // make sure the default size is 'large' in case user doesn't specify
     missionPatch: (mission, { size } = { size: 'LARGE' }) => {
+      console.log(`Mission type here!!, missionPatch`)
+      console.log(mission)
       return size === 'SMALL'
         ? mission.missionPatchSmall
         : mission.missionPatchLarge
     }
   },
   Launch: {
-    isBooked: async (launch, _, { dataSources }) =>
-      dataSources.userAPI.isBookedOnLaunch({ launchId: launch.id })
+    isBooked: async (launch, _, { dataSources }) => {
+      console.log('Launch type isBooked!')
+      console.log(launch)
+      return dataSources.userAPI.isBookedOnLaunch({ launchId: launch.id })
+    }
   },
   User: {
     trips: async (_, __, { dataSources }) => {
+      console.log(`User type here!! trips`)
       // get ids of launches by user
       const launchIds = await dataSources.userAPI.getLaunchIdsByUser()
 

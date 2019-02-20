@@ -18,8 +18,11 @@ const server = new ApolloServer({
     launchAPI: new LaunchAPI(),
     userAPI: new UserAPI({ store })
   }),
+  /* 
+   context에서 오브젝트를 리턴하면.. context정보에 해당 오브젝트 정보가 등록된다.
+   context정보는 아폴로서버에 등록된 모든 resolvers들은 context정보를 공유한다.
+  */
   context: async ({ req }) => {
-    console.log(`enter the context `)
     // simple auth check on every request
     const auth = (req.headers && req.headers.authorization) || ''
     const email = Buffer.from(auth, 'base64').toString('ascii')
