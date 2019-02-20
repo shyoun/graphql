@@ -70,8 +70,6 @@ module.exports = {
   Mission: {
     // make sure the default size is 'large' in case user doesn't specify
     missionPatch: (mission, { size } = { size: 'LARGE' }) => {
-      console.log(`Mission type here!!, missionPatch`)
-      console.log(mission)
       return size === 'SMALL'
         ? mission.missionPatchSmall
         : mission.missionPatchLarge
